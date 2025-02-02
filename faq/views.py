@@ -10,6 +10,10 @@ from django.http import HttpResponse
 def faq_list(request):
     lang = request.GET.get("lang", "en") 
     faqs = FAQ.objects.all()
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf9f1cb (feat: Add multilingual FAQ model with Redis caching)
     translated_faqs = []
     for faq in faqs:
         question, answer = faq.get_translation(lang)
@@ -68,8 +72,12 @@ def test_redis_cache(request):
 class FAQListView(APIView):
     def get(self, request):
         lang = request.GET.get("lang", "en")
+<<<<<<< HEAD
         faqs = FAQ.get_cached_faqs()
 
+=======
+        faqs = FAQ.get_cached_faqs() 
+>>>>>>> cf9f1cb (feat: Add multilingual FAQ model with Redis caching)
         data = []
         for faq in faqs:
             question, answer = faq.get_translation(lang)
@@ -80,4 +88,11 @@ class FAQListView(APIView):
                 "answer": answer,
             })
 
+<<<<<<< HEAD
         return Response({"faqs": data})
+=======
+        return Response({"faqs": data})
+
+
+
+>>>>>>> cf9f1cb (feat: Add multilingual FAQ model with Redis caching)

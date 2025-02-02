@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Django==4.2.7
 djangorestframework==3.14.0
 redis==5.0.1
@@ -8,3 +9,10 @@ whitenoise==6.6.0  # For static files in production
 django-ckeditor
 django-cors-headers
 django-ckeditor-5
+=======
+django
+djangorestframework
+django-ckeditor
+googletrans==4.0.0-rc1
+
+>>>>>>> cf9f1cb (feat: Add multilingual FAQ model with Redis caching)
