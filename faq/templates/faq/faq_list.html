@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ List</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Container for the FAQ list */
+        .faq-container {
+            padding: 30px;
+            border-radius: 8px;
+            width: 60%;
+            max-width: 800px;
+            margin: 20px;
+            background-color: white;
+        }
+
+        /* Styling for each FAQ item */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            cursor: pointer;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        /* FAQ Question Styling */
+        .faq-item h2 {
+            font-size: 1.25rem;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Icon for expanding/collapsing */
+        .toggle-icon {
+            font-size: 1.5rem;
+            color:rgb(39, 39, 39);
+            cursor: pointer;
+        }
+
+        /* Answer Styling */
+        .faq-answer {
+            display: none;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Responsiveness for smaller screens */
+        @media screen and (max-width: 768px) {
+            .faq-container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <ul>
+            {% for faq in faqs %}
+                <li class="faq-item">
+                    <h2>
+                        {{ faq.question }}
+                        <span class="toggle-icon">+</span>
+                    </h2>
+                    <div class="faq-answer">{{ faq.answer|safe }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // Add event listeners to each FAQ item
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.toggle-icon');
+                item.classList.toggle('active');
+                
+                // Toggle visibility of the answer
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    icon.textContent = "+";
+                } else {
+                    answer.style.display = "block";
+                    icon.textContent = "-";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
