@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     path('', faq_list, name='faq_list'),
     path('test-cache/', test_redis_cache, name='test-cache'),
-    path('faqs/', views.faq_list, name='faq_list'),  # Keep only 'faqs/'
+    path('faqs/', views.faq_list, name='faq_list'),
 ]

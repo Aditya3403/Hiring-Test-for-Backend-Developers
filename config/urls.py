@@ -5,6 +5,6 @@ from faq.views import home
 urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
-    path('api/', include('faq.urls')),  # Change from 'faq/' to 'api/'
+    path('api/', include('faq.urls')), 
     path('ckeditor5/', include('django_ckeditor_5.urls')),
 ]

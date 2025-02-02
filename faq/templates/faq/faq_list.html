@@ -108,7 +108,6 @@
     </div>
 
     <script>
-        // Add event listeners to each FAQ item
         const faqItems = document.querySelectorAll('.faq-item');
 
         faqItems.forEach(item => {
@@ -117,7 +116,6 @@
                 const icon = item.querySelector('.toggle-icon');
                 item.classList.toggle('active');
                 
-                // Toggle visibility of the answer
                 if (answer.style.display === "block") {
                     answer.style.display = "none";
                     icon.textContent = "+";
